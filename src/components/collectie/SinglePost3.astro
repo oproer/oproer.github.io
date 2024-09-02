@@ -1,0 +1,97 @@
+---
+
+import PostTags from '~/components/collectie/Tags.astro';
+import SocialShare from '~/components/common/SocialShare.astro';
+import Hero4 from '../widgets/Hero4.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import MakeA5Portrait from '~/components/collectie/MakeA5Portrait.astro'
+import MakeA6Flyers from '~/components/collectie/MakeA6Flyers.astro'
+import MakeA7Portrait from '~/components/collectie/MakeA7Portrait.astro'
+import MakeA7Landscape from '~/components/collectie/MakeA7Landscape.astro'
+
+import type { Post } from '~/types';
+
+export interface Props {
+  post: Post;
+  url: string | URL;
+}
+
+const { post, url } = Astro.props;
+
+---
+
+
+  <!-- Hero4 Widget ******************* -->
+
+  <Hero4
+  actions={[
+    { variant: 'primary', target: '_blank', text: 'Afdrukversie', href: post.printVersion },
+    { text: 'Normale PDF', href: post.screenVersion },
+  ]}
+    tagline={post.category?.title || "Een boekje"}
+    image={{
+    src: post.image,
+    alt: post.imageAlt || post.title,
+    }}
+>
+  <Fragment slot="title">
+    {post.title}
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    {post.excerpt}
+  </Fragment>
+
+</Hero4>
+
+<!-- Stats Widget ****************** -->
+
+<Stats
+title="Details"
+stats={[
+    { title: 'Uitgegeven', amount: post.publishYear || '?'},
+    { title: 'Pagina\'s', amount:  post.pages || '?'},
+    { title: 'Afmetingen', amount: post.dimensions || '?'},
+    { title: 'Taal', amount: post.language || '?'},
+    { title: 'Uitgever', amount: post.author || '?'},
+    { title: 'Identificator', amount: post.identifier || '?'},
+]}
+/>
+
+<!-- Post content ****************** -->
+
+<section class="mb-8 sm:mb-16 lg:mb-20 mx-auto">
+  <article>
+    <div
+      class="mx-auto px-6 sm:px-6 max-w-3xl prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-neutral-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-accent prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0"
+    >
+      <slot />
+    </div>
+  </article>
+</section>
+
+
+<!-- Make instructions *********** -->
+
+{(post.format === "A5-portrait") ? (
+  <MakeA5Portrait />
+) : (post.format === "A6-flyers") ? (
+  <MakeA6Flyers />
+): (post.format === "A7-portrait") ? (
+  <MakeA7Portrait />
+): (post.format === "A7-landscape") ? (
+  <MakeA7Landscape />
+): (
+  ""
+)}
+
+<!-- Tags and socials ****************** -->
+
+<section class="mb-8 sm:mb-16 lg:mb-20 mx-auto">
+  <article>
+    <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
+      <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
+      <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-neutral-600" />
+    </div>
+  </article>
+</section>

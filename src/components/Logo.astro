@@ -1,0 +1,27 @@
+---
+import Image from '~/components/common/Image.astro';
+---
+
+<span
+  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold font-heading whitespace-nowrap"
+>
+  <!-- Light theme logo -->
+  <Image
+    src="~/assets/images/oproer-logo-licht.png"
+    class="h-16 w-auto max-h-16 object-contain dark:hidden"
+    alt="OPROER"
+    layout="cover"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <!-- Dark theme logo -->
+  <Image
+    src="~/assets/images/oproer-logo-donker.png"
+    class="h-16 w-auto max-h-16 object-contain hidden dark:inline"
+    alt="OPROER"
+    layout="cover"
+    loading="lazy"
+    decoding="async"
+  />
+</span>

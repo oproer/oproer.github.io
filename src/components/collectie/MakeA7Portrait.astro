@@ -1,0 +1,32 @@
+---
+import Steps from '~/components/widgets/Steps.astro';
+---
+
+<!-- Steps Widget Make instructions A6 portrait ****************** -->
+
+  <Steps
+    title="Zo maak je het zelf"
+    tagline="stap voor stap"
+    isReversed={true}
+    items={[
+      {
+        title: 'Druk af',
+        icon: 'tabler:printer',
+        description: 'Druk de PDF af op A4-papier.',
+      },
+      {
+        title: 'Vouw',
+        icon: 'tabler:fold',
+        description: 'Vouw het papier over de lange zijde doormidden. Vouw de lange strook nu op elk van de drie gedrukte pagina-overgangen dubbel, in een soort zig-zag harmonicavorm. Zorg dat de voorpagina aan de buitenkant komt.',
+      },
+      {
+        title: 'Klaar!',
+        icon: 'tabler:confetti',
+        description: 'Je boekje is nu gereed!',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/maakinstructies-A7-boekje-staand.webp',
+      alt: 'Linksboven de schematische uitlijning van een A4-papier, rechtsonder een staand boekje op A7-formaat. Tussen de twee loopt een diagonale pijl.',
+    }}
+  />

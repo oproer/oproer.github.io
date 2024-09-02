@@ -1,0 +1,53 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero3 from '~/components/widgets/Hero3.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import BlogLatestPosts2 from '~/components/widgets/BlogLatestPosts2.astro';
+
+
+const metadata = {
+  title: 'OPROER — Voor praktisch verzet en dieper inzicht',
+  ignoreTitleTemplate: true,
+};
+---
+
+
+
+<Layout metadata={metadata}>
+
+  <!-- Hero3 Widget ******************* -->
+
+  <Hero3
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Lees!',
+        href: '/behoud-het-initiatief-eerste-hulp-bij-mobiele-eenheid',
+        icon: 'tabler:arrow-right',
+      },
+      // { text: 'Meer informatie', href: '/over' },
+    ]}
+    image={{ src: '~/assets/images/eerste-hulp-mobiele-eenheid.webp', alt: "Voorpagina van een boekje met daarop de titel 'Behoud het initiatief! Eerste hulp bij de Mobiele Eenheid' en een lijntekening van een agent in uniform met een schild en geheven knuppel." }}
+  >
+  </Hero3>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="OPROER is jouw verstrekker van handige boekjes voor praktisch verzet en dieper inzicht. Het is genoeg geweest. Kom in actie."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-secondary border-y-2 border-black dark:bg-secondary"></div>
+    </Fragment>
+  </Features2>
+
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts2
+    title="Recente boekjes"
+    linkText="Alle boekjes"
+  />
+
+  </Layout>

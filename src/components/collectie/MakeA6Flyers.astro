@@ -1,0 +1,32 @@
+---
+import Steps from '~/components/widgets/Steps.astro';
+---
+
+<!-- Steps Widget generic make instructions ****************** -->
+
+  <Steps
+    title="Zo maak je het zelf"
+    tagline="stap voor stap"
+    isReversed={true}
+    items={[
+      {
+        title: 'Druk af',
+        icon: 'tabler:printer',
+        description: 'Druk de PDF dubbelzijdig af op A4-papier. Kies op je printer voor de optie om te spiegelen over de lange zijde.',
+      },
+      {
+        title: 'Knip',
+        icon: 'tabler:scissors',
+        description: 'Knip of snijd het bedrukte papier zowel horizontaal als verticaal doormidden, zodat je vier losse pamfletten krijgt.',
+      },
+      {
+        title: 'Klaar!',
+        icon: 'tabler:confetti',
+        description: 'Je pamfletten zijn nu klaar om te lezen en te verspreiden.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/maakinstructies-A6-flyer.webp',
+      alt: 'Linksboven de schematische uitlijning van een A4-papier, rechtsonder een rij van drie A6 pamfletten. Tussen de twee loopt een diagonale pijl.',
+    }}
+  />

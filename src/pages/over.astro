@@ -1,0 +1,40 @@
+---
+// import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Over',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Over"
+    image={{
+      src: '~/assets/images/over-oproer.webp',
+      alt: 'Caos Image',
+    }}
+  >
+    <Fragment slot="title">
+      Wat is OPROER?
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      OPROER is een maker, uitgever en verspreider van handige boekjes voor praktisch verzet en inzicht voor iedereen. Het initiatief wordt aangedreven door gewone (bijzondere) mensen net zoals uzelf, vanuit het hele land. Over één ding zijn ze het eens: Het is genoeg geweest. Het doel van OPROER is om het zelfvertrouwen, de trots en effectiviteit van het verzet in Nederland te versterken.
+    </Fragment>
+  </Hero>
+
+ <!-- Features2 Widget ************** -->
+
+ <!-- <Features2
+ subtitle="Heb je een idee of voorstel dat bij OPROER past? Of wil je zelf een boekje insturen? Ga ervoor! Neem contact op via <code>EMAIL</code> of onze sociale media."
+>
+ <Fragment slot="bg">
+   <div class="absolute inset-0 bg-transparent dark:bg-transparent"></div>
+ </Fragment>
+</Features2>
+
+</Layout> -->

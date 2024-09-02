@@ -1,0 +1,37 @@
+---
+import Steps from '~/components/widgets/Steps.astro';
+---
+
+<!-- Steps Widget Make instructions A6 portrait ****************** -->
+
+  <Steps
+    title="Zo maak je het zelf"
+    tagline="stap voor stap"
+    isReversed={true}
+    items={[
+      {
+        title: 'Druk af',
+        icon: 'tabler:printer',
+        description: 'Druk de PDF dubbelzijdig af op A4-papier. Kies op je printer voor de optie om te spiegelen over de lange zijde.',
+      },
+      {
+        title: 'Knip',
+        icon: 'tabler:cut',
+        description: 'Knip of snijd het bedrukte paper op drie plaatsen horizontaal doormidden, op de scheidingslijn tussen de pagina-paren.',
+      },
+      {
+        title: 'Maak vast',
+        icon: 'tabler:needle',
+        description: 'Leg de pagina\'s van het boekje op volgorde en maak het met nietjes of met draad vast.',
+      },
+      {
+        title: 'Klaar!',
+        icon: 'tabler:confetti',
+        description: 'Je boekje is nu klaar om te lezen en te verspreiden.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/maakinstructies-A7-boekje-liggend.webp',
+      alt: 'Linksboven de schematische uitlijning van een A4-papier, rechtsonder een liggend boekje op A7-formaat. Tussen de twee loopt een diagonale pijl.',
+    }}
+  />

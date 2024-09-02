@@ -1,0 +1,67 @@
+site:
+  name: 'OPROER'
+  site: 'https://oproer.github.io' # Github pages: URL based on username
+  base: '/' # Github pages: repo name, unless served from root
+  trailingSlash: false
+  logo: '~/assets/images/over-oproer.webp'
+
+ # googleSiteVerificationId: false
+
+# Default SEO metadata
+metadata:
+  title:
+    default: 'OPROER'
+    template: '%s — OPROER'
+  description: "Voor praktisch verzet en dieper inzicht."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: 'OPROER'
+    images: 
+      - url: '~/assets/images/over-oproer.webp'
+        width: 1200
+        height: 628
+    type: website
+
+i18n:
+  language: nl
+  textDirection: ltr
+
+apps:
+  collectie:
+    isEnabled: true
+    postsPerPage: 500
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'collectie' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+# Analytics done with counter
+analytics: null
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

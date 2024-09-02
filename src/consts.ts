@@ -1,0 +1,8 @@
+// Place any global data in this file.
+// You can import this data from anywhere in your site by using the `import` keyword.
+
+export const SITE_TITLE: string = "oproer";
+
+export const SITE_DESCRIPTION: string  = "Voor het publieke domein";
+
+// export const X_ACCOUNT: string | Multilingual = "@psephopaiktes";

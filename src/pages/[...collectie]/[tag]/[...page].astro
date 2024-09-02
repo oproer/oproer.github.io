@@ -1,0 +1,50 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { blogTagRobots, getStaticPathsBlogTag } from '~/utils/blog';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/collectie/List.astro';
+import Headline from '~/components/collectie/Headline.astro';
+import Pagination from '~/components/collectie/Pagination.astro';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return await getStaticPathsBlogTag({ paginate });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page, tag } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+const metadata = {
+  title: `Boekjes met het onderwerp '${tag.title}'${currentPage > 1 ? ` — Pagina ${currentPage} ` : ''}`,
+  robots: {
+    index: blogTagRobots?.index,
+    follow: blogTagRobots?.follow,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="py-12 sm:py-16 lg:py-20 mx-auto">
+    <Headline 
+        title={tag.title}
+        subtitle={`Alle boekjes gerelateerd aan het onderwerp <code>${tag.title}</code>.`}
+      >
+        
+    </Headline>
+
+  <!-- Tags list for filtering -->
+  <div class="mb-8 md:mx-auto md:mb-12 text-center">
+    <a href="/collectie" class="btn-tertiary ml-2 mt-2 px-5.5 md:px-6 shadow-none text-base w-auto">
+      <p>Toon alle onderwerpen</p>
+    </a>
+  </div>
+
+
+    <BlogList posts={page.data} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+</Layout>
