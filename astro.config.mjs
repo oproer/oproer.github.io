@@ -27,6 +27,8 @@ const whenExternalScripts = (items = []) =>
 export default defineConfig({
   output: 'static',
 
+  site: 'https://github.com/oproer/oproer.github.io/',
+
   integrations: [tailwind({
     applyBaseStyles: false,
   }), sitemap(), mdx(), icon({
