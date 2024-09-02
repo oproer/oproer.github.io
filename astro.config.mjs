@@ -83,8 +83,4 @@ export default defineConfig({
       },
     },
   },
-
-  redirects: {
-    "": ""
-  }
 });
